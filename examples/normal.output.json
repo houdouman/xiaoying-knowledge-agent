@@ -1,0 +1,65 @@
+{
+  "status": "completed",
+  "answer": "员工申请年假须提前3个工作日提交申请，由直属主管审批。",
+  "citations": [
+    {
+      "doc_id": "D03",
+      "version_date": "2026-03-01",
+      "quote": "员工申请年假须提前3个工作日提交申请，由直属主管审批。"
+    }
+  ],
+  "gaps": [],
+  "mode": "offline",
+  "verification": "离线测试替身，仅验证流程",
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "parameters": {
+        "query": "年假如何申请"
+      },
+      "reason": "根据问题及历史检索",
+      "observation": {
+        "hits": [
+          {
+            "id": "D03",
+            "title": "年假申请规则",
+            "version_date": "2026-03-01",
+            "snippet": "员工申请年假须提前3个工作日提交"
+          }
+        ]
+      }
+    },
+    {
+      "step": 2,
+      "action": "read",
+      "parameters": {
+        "ids": [
+          "D03"
+        ]
+      },
+      "reason": "读取检索命中的原文以核实",
+      "observation": {
+        "documents": [
+          {
+            "id": "D03",
+            "version_date": "2026-03-01",
+            "title": "年假申请规则",
+            "text": "员工申请年假须提前3个工作日提交申请，由直属主管审批。",
+            "keywords": [
+              "年假",
+              "休假"
+            ]
+          }
+        ],
+        "missing_ids": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "parameters": {},
+      "reason": "依据已读取原文返回并保留冲突"
+    }
+  ]
+}

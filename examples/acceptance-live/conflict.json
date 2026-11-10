@@ -1,0 +1,197 @@
+{
+  "request": {
+    "question": "报销期限多久"
+  },
+  "documents": [
+    {
+      "id": "D01",
+      "version_date": "2026-01-01",
+      "title": "费用报销制度",
+      "text": "员工应在费用发生后30天内提交报销申请。",
+      "keywords": [
+        "报销",
+        "费用"
+      ]
+    },
+    {
+      "id": "D02",
+      "version_date": "2026-02-01",
+      "title": "报销办理指引",
+      "text": "员工应在费用发生后15天内提交报销申请。",
+      "keywords": [
+        "报销",
+        "费用"
+      ]
+    },
+    {
+      "id": "D03",
+      "version_date": "2026-03-01",
+      "title": "年假申请规则",
+      "text": "员工申请年假须提前3个工作日提交申请，由直属主管审批。",
+      "keywords": [
+        "年假",
+        "休假"
+      ]
+    }
+  ],
+  "result": {
+    "status": "conflict",
+    "answer": "关于报销期限，现有资料存在冲突：《费用报销制度》规定费用发生后30天内提交，《报销办理指引》规定15天内提交。未检索到两份文件的适用范围或优先级说明，无法确定以哪份为准，请确认适用制度。",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "version_date": "2026-01-01",
+        "quote": "员工应在费用发生后30天内提交报销申请。",
+        "chunk_id": "D01:0-20",
+        "start": 0,
+        "end": 20
+      },
+      {
+        "doc_id": "D02",
+        "version_date": "2026-02-01",
+        "quote": "员工应在费用发生后15天内提交报销申请。",
+        "chunk_id": "D02:0-20",
+        "start": 0,
+        "end": 20
+      }
+    ],
+    "gaps": [
+      "两份文档的适用范围未明确",
+      "两份文档的优先级或替代关系未明确"
+    ],
+    "mode": "live",
+    "verification": "真实模型运行",
+    "trace": [
+      {
+        "step": 1,
+        "action": "search",
+        "parameters": {
+          "query": "报销期限"
+        },
+        "reason": "查找报销制度中关于报销时限的规定",
+        "observation": {
+          "hits": [
+            {
+              "id": "D01",
+              "chunk_id": "D01:0-20",
+              "version_date": "2026-01-01",
+              "title": "费用报销制度",
+              "start": 0,
+              "end": 20,
+              "score": 5,
+              "snippet": "员工应在费用发生后30天内提交报销申请。"
+            },
+            {
+              "id": "D02",
+              "chunk_id": "D02:0-20",
+              "version_date": "2026-02-01",
+              "title": "报销办理指引",
+              "start": 0,
+              "end": 20,
+              "score": 5,
+              "snippet": "员工应在费用发生后15天内提交报销申请。"
+            }
+          ]
+        }
+      },
+      {
+        "step": 2,
+        "action": "read",
+        "parameters": {
+          "ids": [
+            "D01:0-20",
+            "D02:0-20"
+          ]
+        },
+        "reason": "两份文档对报销期限说法不一致，需读取原文核实并查找适用范围或优先级",
+        "observation": {
+          "documents": [
+            {
+              "id": "D01",
+              "version_date": "2026-01-01",
+              "title": "费用报销制度",
+              "text": "员工应在费用发生后30天内提交报销申请。",
+              "keywords": [
+                "报销",
+                "费用"
+              ],
+              "doc_id": "D01",
+              "chunk_id": "D01:0-20",
+              "start": 0,
+              "end": 20
+            },
+            {
+              "id": "D02",
+              "version_date": "2026-02-01",
+              "title": "报销办理指引",
+              "text": "员工应在费用发生后15天内提交报销申请。",
+              "keywords": [
+                "报销",
+                "费用"
+              ],
+              "doc_id": "D02",
+              "chunk_id": "D02:0-20",
+              "start": 0,
+              "end": 20
+            }
+          ],
+          "missing_ids": []
+        }
+      },
+      {
+        "step": 3,
+        "action": "search",
+        "parameters": {
+          "query": "费用报销制度 报销办理指引 适用范围 优先级 冲突"
+        },
+        "reason": "两份文档分别规定30天和15天，需查证适用范围或优先级以消解冲突",
+        "observation": {
+          "hits": [
+            {
+              "id": "D02",
+              "chunk_id": "D02:0-20",
+              "version_date": "2026-02-01",
+              "title": "报销办理指引",
+              "start": 0,
+              "end": 20,
+              "score": 14,
+              "snippet": "员工应在费用发生后15天内提交报销申请。"
+            },
+            {
+              "id": "D01",
+              "chunk_id": "D01:0-20",
+              "version_date": "2026-01-01",
+              "title": "费用报销制度",
+              "start": 0,
+              "end": 20,
+              "score": 13,
+              "snippet": "员工应在费用发生后30天内提交报销申请。"
+            }
+          ]
+        }
+      },
+      {
+        "step": 4,
+        "action": "finish",
+        "parameters": {},
+        "reason": "两份文档对报销期限规定冲突，补充检索未找到适用范围或优先级说明，无法消解冲突"
+      }
+    ],
+    "protocol_errors": [],
+    "metrics": {
+      "elapsed_seconds": 4.953,
+      "decision_steps": 4,
+      "tool_calls": 3,
+      "model_responses": 4,
+      "total_tokens": 3413
+    }
+  },
+  "checks": {
+    "status": true,
+    "sources": true,
+    "answer": true,
+    "both_values": true,
+    "asks_clarification": true,
+    "conflict_investigation": true
+  }
+}

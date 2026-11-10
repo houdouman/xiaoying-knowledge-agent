@@ -1,0 +1,106 @@
+{
+  "request": {
+    "question": "报销期限多久"
+  },
+  "documents": [
+    {
+      "id": "D01",
+      "version_date": "2026-01-01",
+      "title": "费用报销制度",
+      "text": "员工应在费用发生后30天内提交报销申请。",
+      "keywords": [
+        "报销",
+        "费用"
+      ]
+    }
+  ],
+  "result": {
+    "status": "completed",
+    "answer": "根据《费用报销制度》，员工应在费用发生后30天内提交报销申请。",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "version_date": "2026-01-01",
+        "quote": "员工应在费用发生后30天内提交报销申请。",
+        "chunk_id": "D01:0-20",
+        "start": 0,
+        "end": 20
+      }
+    ],
+    "gaps": [],
+    "mode": "live",
+    "verification": "真实模型运行",
+    "trace": [
+      {
+        "step": 1,
+        "action": "search",
+        "parameters": {
+          "query": "报销期限"
+        },
+        "reason": "查找报销制度中关于报销时限的规定",
+        "observation": {
+          "hits": [
+            {
+              "id": "D01",
+              "chunk_id": "D01:0-20",
+              "version_date": "2026-01-01",
+              "title": "费用报销制度",
+              "start": 0,
+              "end": 20,
+              "score": 5,
+              "snippet": "员工应在费用发生后30天内提交报销申请。"
+            }
+          ]
+        }
+      },
+      {
+        "step": 2,
+        "action": "read",
+        "parameters": {
+          "ids": [
+            "D01:0-20"
+          ]
+        },
+        "reason": "检索命中报销期限条款，需读取原文核实完整表述",
+        "observation": {
+          "documents": [
+            {
+              "id": "D01",
+              "version_date": "2026-01-01",
+              "title": "费用报销制度",
+              "text": "员工应在费用发生后30天内提交报销申请。",
+              "keywords": [
+                "报销",
+                "费用"
+              ],
+              "doc_id": "D01",
+              "chunk_id": "D01:0-20",
+              "start": 0,
+              "end": 20
+            }
+          ],
+          "missing_ids": []
+        }
+      },
+      {
+        "step": 3,
+        "action": "finish",
+        "parameters": {},
+        "reason": "已读取费用报销制度原文，明确报销期限为费用发生后30天内"
+      }
+    ],
+    "protocol_errors": [],
+    "metrics": {
+      "elapsed_seconds": 3.36,
+      "decision_steps": 3,
+      "tool_calls": 2,
+      "model_responses": 3,
+      "total_tokens": 1922
+    }
+  },
+  "checks": {
+    "status": true,
+    "sources": true,
+    "answer": true
+  }
+}

@@ -1,0 +1,205 @@
+{
+  "request": {
+    "question": "垫付的钱最晚什么时候能找公司结算？"
+  },
+  "documents": [
+    {
+      "id": "D01",
+      "version_date": "2026-01-01",
+      "title": "费用报销制度",
+      "text": "员工应在费用发生后30天内提交报销申请。",
+      "keywords": [
+        "报销",
+        "费用"
+      ]
+    },
+    {
+      "id": "D02",
+      "version_date": "2026-02-01",
+      "title": "报销办理指引",
+      "text": "员工应在费用发生后15天内提交报销申请。",
+      "keywords": [
+        "报销",
+        "费用"
+      ]
+    },
+    {
+      "id": "D03",
+      "version_date": "2026-03-01",
+      "title": "年假申请规则",
+      "text": "员工申请年假须提前3个工作日提交申请，由直属主管审批。",
+      "keywords": [
+        "年假",
+        "休假"
+      ]
+    }
+  ],
+  "result": {
+    "status": "conflict",
+    "answer": "关于垫付费用最晚何时提交结算，现有资料存在冲突：一份制度要求费用发生后30天内提交报销申请，另一份指引要求15天内提交。两份文档均未说明适用范围或优先级，无法确定以哪份为准，请确认适用制度。",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "version_date": "2026-01-01",
+        "quote": "员工应在费用发生后30天内提交报销申请。",
+        "chunk_id": "D01:0-20",
+        "start": 0,
+        "end": 20
+      },
+      {
+        "doc_id": "D02",
+        "version_date": "2026-02-01",
+        "quote": "员工应在费用发生后15天内提交报销申请。",
+        "chunk_id": "D02:0-20",
+        "start": 0,
+        "end": 20
+      }
+    ],
+    "gaps": [
+      "两份文档的适用范围与优先级未明确",
+      "未检索到关于垫付结算时限的其他规定"
+    ],
+    "mode": "live",
+    "verification": "真实模型运行",
+    "trace": [
+      {
+        "step": 1,
+        "action": "search",
+        "parameters": {
+          "query": "垫付费用报销结算时限"
+        },
+        "reason": "查找垫付费用结算/报销时限的制度依据",
+        "observation": {
+          "hits": [
+            {
+              "id": "D01",
+              "chunk_id": "D01:0-20",
+              "version_date": "2026-01-01",
+              "title": "费用报销制度",
+              "start": 0,
+              "end": 20,
+              "score": 11,
+              "snippet": "员工应在费用发生后30天内提交报销申请。"
+            },
+            {
+              "id": "D02",
+              "chunk_id": "D02:0-20",
+              "version_date": "2026-02-01",
+              "title": "报销办理指引",
+              "start": 0,
+              "end": 20,
+              "score": 10,
+              "snippet": "员工应在费用发生后15天内提交报销申请。"
+            }
+          ]
+        }
+      },
+      {
+        "step": 2,
+        "action": "finish",
+        "parameters": {},
+        "reason": "两份制度对报销提交时限规定冲突，且未检索到适用范围或优先级依据，无法消解",
+        "validation_error": "invalid_evidence"
+      },
+      {
+        "step": 3,
+        "action": "read",
+        "parameters": {
+          "ids": [
+            "D01:0-20",
+            "D02:0-20"
+          ]
+        },
+        "reason": "引用前需读取原文核实两份文档的时限表述",
+        "observation": {
+          "documents": [
+            {
+              "id": "D01",
+              "version_date": "2026-01-01",
+              "title": "费用报销制度",
+              "text": "员工应在费用发生后30天内提交报销申请。",
+              "keywords": [
+                "报销",
+                "费用"
+              ],
+              "doc_id": "D01",
+              "chunk_id": "D01:0-20",
+              "start": 0,
+              "end": 20
+            },
+            {
+              "id": "D02",
+              "version_date": "2026-02-01",
+              "title": "报销办理指引",
+              "text": "员工应在费用发生后15天内提交报销申请。",
+              "keywords": [
+                "报销",
+                "费用"
+              ],
+              "doc_id": "D02",
+              "chunk_id": "D02:0-20",
+              "start": 0,
+              "end": 20
+            }
+          ],
+          "missing_ids": []
+        }
+      },
+      {
+        "step": 4,
+        "action": "search",
+        "parameters": {
+          "query": "费用报销制度 报销办理指引 适用范围 优先级 替代"
+        },
+        "reason": "两份文档时限冲突，需查证适用范围或优先级以判断能否消解",
+        "observation": {
+          "hits": [
+            {
+              "id": "D02",
+              "chunk_id": "D02:0-20",
+              "version_date": "2026-02-01",
+              "title": "报销办理指引",
+              "start": 0,
+              "end": 20,
+              "score": 14,
+              "snippet": "员工应在费用发生后15天内提交报销申请。"
+            },
+            {
+              "id": "D01",
+              "chunk_id": "D01:0-20",
+              "version_date": "2026-01-01",
+              "title": "费用报销制度",
+              "start": 0,
+              "end": 20,
+              "score": 13,
+              "snippet": "员工应在费用发生后30天内提交报销申请。"
+            }
+          ]
+        }
+      },
+      {
+        "step": 5,
+        "action": "finish",
+        "parameters": {},
+        "reason": "已读取两份原文，时限分别为30天与15天，补充检索未发现适用范围或优先级说明，冲突无法消解"
+      }
+    ],
+    "protocol_errors": [
+      "{\"action\":\"read\",\"ids\":[\"D01:0-20\",\"D02:0-20\"],\"reason\":\"两份文档对报销提交时限说法不一致，需读取原文核实并查看适用范围\"}{\"action\":\"search\",\"query\":\"费用报销制度 适用范围 报销办理指引 优先级\",\"reason\":\"发现30天与15天冲突，需查证适用范围或优先级以消解冲突\"}{\"action\":\"read\",\"ids\":[\"D01:0-20\",\"D02:0-20\"],\"reason\":\"读取补充检索命中，确认是否存在适用范围或替代关系\"}{\"action\":\"finish\",\"reason\":\"两份制度对报销提交时限规定冲突且未检索到适用范围或优先级依据\",\"result\":{\"status\":\"conflict\",\"answer\":\"关于垫付费用最晚何时提交结算，现有资料存在冲突：一份制度要求费用发生后30天内提交报销申请，另一份指引要求15天内提交。两者均未说明适用范围或优先级，无法确定以哪份为准，请确认适用制度。\",\"citations\":[{\"doc_id\":\"D01\",\"version_date\":\"2026-01-01\",\"quote\":\"员工应在费用发生后30天内提交报销申请。\"},{\"doc_id\":\"D02\",\"version_date\":\"2026-02-01\",\"quote\":\"员工应在费用发生后15天内提交报销申请。\"}],\"gaps\":[\"两份文档的适用范围与优先级未明确\",\"未检索到关于垫付结算时限的其他规定\"]}}"
+    ],
+    "metrics": {
+      "elapsed_seconds": 7.438,
+      "decision_steps": 5,
+      "tool_calls": 3,
+      "model_responses": 6,
+      "total_tokens": 6257
+    }
+  },
+  "checks": {
+    "status": true,
+    "sources": true,
+    "answer": true,
+    "both_values": true,
+    "asks_clarification": true
+  }
+}

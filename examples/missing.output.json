@@ -1,0 +1,40 @@
+{
+  "status": "insufficient_evidence",
+  "answer": "现有资料无法回答，请提供相关制度。",
+  "citations": [],
+  "gaps": [
+    "缺少相关制度原文"
+  ],
+  "mode": "offline",
+  "verification": "离线测试替身，仅验证流程",
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "parameters": {
+        "query": "火星天气如何"
+      },
+      "reason": "根据问题及历史检索",
+      "observation": {
+        "hits": []
+      }
+    },
+    {
+      "step": 2,
+      "action": "search",
+      "parameters": {
+        "query": "火星天气如何"
+      },
+      "reason": "无命中，改写补充检索",
+      "observation": {
+        "hits": []
+      }
+    },
+    {
+      "step": 3,
+      "action": "finish",
+      "parameters": {},
+      "reason": "补充检索仍无依据"
+    }
+  ]
+}

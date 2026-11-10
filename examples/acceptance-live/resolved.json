@@ -1,0 +1,196 @@
+{
+  "request": {
+    "question": "报销期限多久"
+  },
+  "documents": [
+    {
+      "id": "D01",
+      "version_date": "2026-01-01",
+      "title": "费用报销制度",
+      "text": "员工应在费用发生后30天内提交报销申请。",
+      "keywords": [
+        "报销",
+        "费用"
+      ]
+    },
+    {
+      "id": "D02",
+      "version_date": "2026-02-01",
+      "title": "报销办理指引",
+      "text": "员工应在费用发生后15天内提交报销申请。",
+      "keywords": [
+        "报销",
+        "费用"
+      ]
+    },
+    {
+      "id": "D03",
+      "version_date": "2026-03-01",
+      "title": "年假申请规则",
+      "text": "员工申请年假须提前3个工作日提交申请，由直属主管审批。",
+      "keywords": [
+        "年假",
+        "休假"
+      ]
+    },
+    {
+      "id": "D04",
+      "title": "报销制度适用说明",
+      "version_date": "2026-04-01",
+      "keywords": [
+        "优先级",
+        "适用",
+        "替代"
+      ],
+      "text": "D02已废止，所有员工费用报销统一适用D01的30天期限。"
+    }
+  ],
+  "result": {
+    "status": "completed",
+    "answer": "员工应在费用发生后30天内提交报销申请。原《报销办理指引》中的15天规定已废止，统一适用30天期限。",
+    "citations": [
+      {
+        "doc_id": "D01",
+        "version_date": "2026-01-01",
+        "quote": "员工应在费用发生后30天内提交报销申请。",
+        "chunk_id": "D01:0-20",
+        "start": 0,
+        "end": 20
+      },
+      {
+        "doc_id": "D04",
+        "version_date": "2026-04-01",
+        "quote": "D02已废止，所有员工费用报销统一适用D01的30天期限。",
+        "chunk_id": "D04:0-29",
+        "start": 0,
+        "end": 29
+      }
+    ],
+    "gaps": [],
+    "mode": "live",
+    "verification": "真实模型运行",
+    "trace": [
+      {
+        "step": 1,
+        "action": "search",
+        "parameters": {
+          "query": "报销期限"
+        },
+        "reason": "查找报销制度中关于报销时限的规定",
+        "observation": {
+          "hits": [
+            {
+              "id": "D01",
+              "chunk_id": "D01:0-20",
+              "version_date": "2026-01-01",
+              "title": "费用报销制度",
+              "start": 0,
+              "end": 20,
+              "score": 5,
+              "snippet": "员工应在费用发生后30天内提交报销申请。"
+            },
+            {
+              "id": "D02",
+              "chunk_id": "D02:0-20",
+              "version_date": "2026-02-01",
+              "title": "报销办理指引",
+              "start": 0,
+              "end": 20,
+              "score": 5,
+              "snippet": "员工应在费用发生后15天内提交报销申请。"
+            },
+            {
+              "id": "D04",
+              "chunk_id": "D04:0-29",
+              "version_date": "2026-04-01",
+              "title": "报销制度适用说明",
+              "start": 0,
+              "end": 29,
+              "score": 2,
+              "snippet": "D02已废止，所有员工费用报销统一适用D01的30天期限。"
+            }
+          ]
+        }
+      },
+      {
+        "step": 2,
+        "action": "read",
+        "parameters": {
+          "ids": [
+            "D01:0-20",
+            "D02:0-20",
+            "D04:0-29"
+          ]
+        },
+        "reason": "三份文档对报销期限说法不一致，需读取原文核实并确认适用关系",
+        "observation": {
+          "documents": [
+            {
+              "id": "D01",
+              "version_date": "2026-01-01",
+              "title": "费用报销制度",
+              "text": "员工应在费用发生后30天内提交报销申请。",
+              "keywords": [
+                "报销",
+                "费用"
+              ],
+              "doc_id": "D01",
+              "chunk_id": "D01:0-20",
+              "start": 0,
+              "end": 20
+            },
+            {
+              "id": "D02",
+              "version_date": "2026-02-01",
+              "title": "报销办理指引",
+              "text": "员工应在费用发生后15天内提交报销申请。",
+              "keywords": [
+                "报销",
+                "费用"
+              ],
+              "doc_id": "D02",
+              "chunk_id": "D02:0-20",
+              "start": 0,
+              "end": 20
+            },
+            {
+              "id": "D04",
+              "title": "报销制度适用说明",
+              "version_date": "2026-04-01",
+              "keywords": [
+                "优先级",
+                "适用",
+                "替代"
+              ],
+              "text": "D02已废止，所有员工费用报销统一适用D01的30天期限。",
+              "doc_id": "D04",
+              "chunk_id": "D04:0-29",
+              "start": 0,
+              "end": 29
+            }
+          ],
+          "missing_ids": []
+        }
+      },
+      {
+        "step": 3,
+        "action": "finish",
+        "parameters": {},
+        "reason": "已读取三份原文，D04明确D02废止并统一适用D01的30天期限，冲突可消解"
+      }
+    ],
+    "protocol_errors": [],
+    "metrics": {
+      "elapsed_seconds": 3.312,
+      "decision_steps": 3,
+      "tool_calls": 2,
+      "model_responses": 3,
+      "total_tokens": 2517
+    }
+  },
+  "checks": {
+    "status": true,
+    "sources": true,
+    "answer": true
+  }
+}

@@ -1,0 +1,20 @@
+.venv/
+__pycache__/
+.env
+*.pyc
+.env.*
+!.env.example
+.pytest_cache/
+.vscode/
+.idea/
+*.log
+
+# Local assessment references and historical debugging artifacts
+/考核要求1.png
+/考核要求2.png
+/题目.png
+/examples/live/
+/examples/live-first-run/
+/examples/acceptance-live-before-repair/
+/examples/acceptance-live-protocol-failure/
+/examples/protocol-check.json

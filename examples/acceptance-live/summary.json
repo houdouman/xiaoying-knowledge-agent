@@ -1,0 +1,143 @@
+[
+  {
+    "case": "normal",
+    "status": "completed",
+    "passed": true,
+    "checks": {
+      "status": true,
+      "sources": true,
+      "answer": true
+    },
+    "elapsed_seconds": 4.453,
+    "decision_steps": 3,
+    "tool_calls": 2,
+    "model_responses": 3,
+    "total_tokens": 1967
+  },
+  {
+    "case": "conflict",
+    "status": "conflict",
+    "passed": true,
+    "checks": {
+      "status": true,
+      "sources": true,
+      "answer": true,
+      "both_values": true,
+      "asks_clarification": true,
+      "conflict_investigation": true
+    },
+    "elapsed_seconds": 4.953,
+    "decision_steps": 4,
+    "tool_calls": 3,
+    "model_responses": 4,
+    "total_tokens": 3413
+  },
+  {
+    "case": "missing",
+    "status": "insufficient_evidence",
+    "passed": true,
+    "checks": {
+      "status": true,
+      "sources": true,
+      "answer": true
+    },
+    "elapsed_seconds": 3.235,
+    "decision_steps": 3,
+    "tool_calls": 2,
+    "model_responses": 3,
+    "total_tokens": 1691
+  },
+  {
+    "case": "paraphrase",
+    "status": "conflict",
+    "passed": true,
+    "checks": {
+      "status": true,
+      "sources": true,
+      "answer": true,
+      "both_values": true,
+      "asks_clarification": true
+    },
+    "elapsed_seconds": 7.438,
+    "decision_steps": 5,
+    "tool_calls": 3,
+    "model_responses": 6,
+    "total_tokens": 6257
+  },
+  {
+    "case": "context",
+    "status": "completed",
+    "passed": true,
+    "checks": {
+      "status": true,
+      "sources": true,
+      "answer": true
+    },
+    "elapsed_seconds": 3.25,
+    "decision_steps": 3,
+    "tool_calls": 2,
+    "model_responses": 3,
+    "total_tokens": 2013
+  },
+  {
+    "case": "tool-failure",
+    "status": "tool_error",
+    "passed": true,
+    "checks": {
+      "status": true,
+      "sources": true,
+      "answer": true
+    },
+    "elapsed_seconds": 2.969,
+    "decision_steps": 3,
+    "tool_calls": 2,
+    "model_responses": 3,
+    "total_tokens": 1725
+  },
+  {
+    "case": "single-source",
+    "status": "completed",
+    "passed": true,
+    "checks": {
+      "status": true,
+      "sources": true,
+      "answer": true
+    },
+    "elapsed_seconds": 3.36,
+    "decision_steps": 3,
+    "tool_calls": 2,
+    "model_responses": 3,
+    "total_tokens": 1922
+  },
+  {
+    "case": "replacement",
+    "status": "completed",
+    "passed": true,
+    "checks": {
+      "status": true,
+      "sources": true,
+      "answer": true,
+      "no_old_value": true
+    },
+    "elapsed_seconds": 3.203,
+    "decision_steps": 3,
+    "tool_calls": 2,
+    "model_responses": 3,
+    "total_tokens": 1922
+  },
+  {
+    "case": "resolved",
+    "status": "completed",
+    "passed": true,
+    "checks": {
+      "status": true,
+      "sources": true,
+      "answer": true
+    },
+    "elapsed_seconds": 3.312,
+    "decision_steps": 3,
+    "tool_calls": 2,
+    "model_responses": 3,
+    "total_tokens": 2517
+  }
+]

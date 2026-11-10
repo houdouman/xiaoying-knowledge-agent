@@ -1,0 +1,29 @@
+{
+  "status": "tool_error",
+  "answer": "检索工具失败，暂时无法核实。",
+  "citations": [],
+  "gaps": [
+    "工具不可用"
+  ],
+  "mode": "offline",
+  "verification": "离线测试替身，仅验证流程",
+  "trace": [
+    {
+      "step": 1,
+      "action": "search",
+      "parameters": {
+        "query": "报销"
+      },
+      "reason": "根据问题及历史检索",
+      "observation": {
+        "error": "OSError"
+      }
+    },
+    {
+      "step": 2,
+      "action": "finish",
+      "parameters": {},
+      "reason": "工具不可用"
+    }
+  ]
+}

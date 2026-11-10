@@ -1,0 +1,129 @@
+{
+  "request": {
+    "question": "需要提前多久？",
+    "history": [
+      "我想申请年假"
+    ]
+  },
+  "documents": [
+    {
+      "id": "D01",
+      "version_date": "2026-01-01",
+      "title": "费用报销制度",
+      "text": "员工应在费用发生后30天内提交报销申请。",
+      "keywords": [
+        "报销",
+        "费用"
+      ]
+    },
+    {
+      "id": "D02",
+      "version_date": "2026-02-01",
+      "title": "报销办理指引",
+      "text": "员工应在费用发生后15天内提交报销申请。",
+      "keywords": [
+        "报销",
+        "费用"
+      ]
+    },
+    {
+      "id": "D03",
+      "version_date": "2026-03-01",
+      "title": "年假申请规则",
+      "text": "员工申请年假须提前3个工作日提交申请，由直属主管审批。",
+      "keywords": [
+        "年假",
+        "休假"
+      ]
+    }
+  ],
+  "result": {
+    "status": "completed",
+    "answer": "申请年假须提前3个工作日提交申请，由直属主管审批。",
+    "citations": [
+      {
+        "doc_id": "D03",
+        "version_date": "2026-03-01",
+        "quote": "员工申请年假须提前3个工作日提交申请，由直属主管审批。",
+        "chunk_id": "D03:0-27",
+        "start": 0,
+        "end": 27
+      }
+    ],
+    "gaps": [],
+    "mode": "live",
+    "verification": "真实模型运行",
+    "trace": [
+      {
+        "step": 1,
+        "action": "search",
+        "parameters": {
+          "query": "年假申请 提前多久"
+        },
+        "reason": "用户追问年假申请需提前多久，检索相关制度条款",
+        "observation": {
+          "hits": [
+            {
+              "id": "D03",
+              "chunk_id": "D03:0-27",
+              "version_date": "2026-03-01",
+              "title": "年假申请规则",
+              "start": 0,
+              "end": 27,
+              "score": 8,
+              "snippet": "员工申请年假须提前3个工作日提交申请，由直属主管审批。"
+            }
+          ]
+        }
+      },
+      {
+        "step": 2,
+        "action": "read",
+        "parameters": {
+          "ids": [
+            "D03:0-27"
+          ]
+        },
+        "reason": "检索命中年假申请提前时限条款，需读取原文核实完整表述",
+        "observation": {
+          "documents": [
+            {
+              "id": "D03",
+              "version_date": "2026-03-01",
+              "title": "年假申请规则",
+              "text": "员工申请年假须提前3个工作日提交申请，由直属主管审批。",
+              "keywords": [
+                "年假",
+                "休假"
+              ],
+              "doc_id": "D03",
+              "chunk_id": "D03:0-27",
+              "start": 0,
+              "end": 27
+            }
+          ],
+          "missing_ids": []
+        }
+      },
+      {
+        "step": 3,
+        "action": "finish",
+        "parameters": {},
+        "reason": "已读取年假申请规则原文，明确提前时限"
+      }
+    ],
+    "protocol_errors": [],
+    "metrics": {
+      "elapsed_seconds": 3.25,
+      "decision_steps": 3,
+      "tool_calls": 2,
+      "model_responses": 3,
+      "total_tokens": 2013
+    }
+  },
+  "checks": {
+    "status": true,
+    "sources": true,
+    "answer": true
+  }
+}

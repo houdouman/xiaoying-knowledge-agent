@@ -1,0 +1,21 @@
+test_clear (test_agent.AgentTests.test_clear) ... ok
+test_conflict (test_agent.AgentTests.test_conflict) ... ok
+test_context (test_agent.AgentTests.test_context) ... ok
+test_fabricated_quote (test_agent.AgentTests.test_fabricated_quote) ... ok
+test_failure (test_agent.AgentTests.test_failure) ... ok
+test_invalid (test_agent.AgentTests.test_invalid) ... ok
+test_limit (test_agent.AgentTests.test_limit) ... ok
+test_outside (test_agent.AgentTests.test_outside) ... ok
+test_paraphrase (test_agent.AgentTests.test_paraphrase) ... ok
+test_replaced_documents (test_agent.AgentTests.test_replaced_documents) ... ok
+test_body_retrieval_without_curated_keywords (test_knowledge.KnowledgeTests.test_body_retrieval_without_curated_keywords) ... ok
+test_citation_offsets (test_knowledge.KnowledgeTests.test_citation_offsets) ... ok
+test_live_validation_feedback_repairs_unread_quote (test_knowledge.KnowledgeTests.test_live_validation_feedback_repairs_unread_quote) ... ok
+test_multiple_tool_proposals_execute_first_only (test_knowledge.KnowledgeTests.test_multiple_tool_proposals_execute_first_only) ... ok
+test_offsets_reconstruct_source (test_knowledge.KnowledgeTests.test_offsets_reconstruct_source) ... ok
+test_unread_chunk_cannot_be_cited (test_knowledge.KnowledgeTests.test_unread_chunk_cannot_be_cited) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.043s
+
+OK
